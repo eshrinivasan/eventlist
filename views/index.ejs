@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'/>
+</head>
+<body>
+<% include ./nav %>
+<div class="container">
+
+  <h1><%= title %></h1>
+
+  <% for(var i = 0; i < events.length; i++) { %>
+  <h2><%= events[i].title %></h2>
+
+  <% include ./utils %>
+  <p><%= formatDate(events[i].eventdate) %> at
+    <%= events[i].venue.name %>, <%= events[i].venue.address %></p>
+  <% } %>
+
+  <a class="btn btn-large btn-primary" href="events/">See all events</a>
+
+</div>
+
+</body>
+</html>

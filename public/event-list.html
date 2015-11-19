@@ -1,0 +1,66 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS $http Service</title>
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'/>
+    <link rel='stylesheet' href='stylesheets/style.css'/>
+</head>
+<body>
+<div ng-controller="myController" class="container">
+    <h2>Events Admin via Node Server + Angular</h2>
+
+    <p class="alert alert-info">{{instruc}}</p>
+    <input class="btn btn-large btn-primary"
+           type="button"
+           ng-click="getEvents()"
+           value="Load Events"/>
+
+    <h3>Upcoming Events</h3>
+
+    <div class="events">
+        <div ng-repeat="event in events">
+            {{event.title}}
+            [<span class="clickable" ng-click="removeEvent(event)">Remove</span>]
+        </div>
+    </div>
+
+    <div ng-if="events.length > 0" class="well">
+        <div class="form-group">
+            <label for="title">Event name</label>
+            <input ng-model="event.title" type="text" class="form-control" id="title" name="title" placeholder="Name of the event">
+        </div>
+
+        <div class="form-group">
+            <label for="datestr">Event date</label>
+            <input ng-model="event.datestr" type="text" class="form-control" id="datestr" name="datestr" placeholder="yyyy-mm-dd">
+        </div>
+
+        <div class="form-group">
+            <label for="venue_name">Venue name</label>
+            <input ng-model="event.venue.name" type="text" class="form-control" id="venue_name" name="venue_name" placeholder="" required>
+        </div>
+
+        <div class="form-group">
+            <label for="venue_address">Venue address</label>
+            <input ng-model="event.venue.address" type="text" class="form-control" id="venue_address" name="venue_address" placeholder="street address + zip, or street, city, state, zip">
+        </div>
+
+        <input class="btn btn-large btn-primary"
+               type="button"
+               ng-click="addEvent()"
+               value="Add Event (local)"/>
+
+        <input class="btn btn-large btn-primary"
+               type="button"
+               ng-click="saveEvent()"
+               value="Save event (MongoDB)"/>
+
+    </div>
+</div>
+<!--
+<script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="js/app/app.js"></script>
+</body>
+</html>

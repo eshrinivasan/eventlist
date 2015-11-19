@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+<head>
+    <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js'></script>
+    <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js'></script>
+    <script src='js/app/app.js'></script>
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+</head>
+<body ng-controller='ApplicationCtrl'>
+
+<% include ./nav %>
+
+<div class="container">
+    <row>
+        <div class="col-md-6 col-xs-12 ">
+            <h2>Add an Event</h2>
+            <div class="well">
+                <div class="form-group">
+                    <label for="title">Event name</label>
+                    <input ng-model="event.title" type="text" class="form-control" id="title" name="title"
+                           placeholder="Name of event">
+                </div>
+
+                <div class="form-group">
+                    <label for="datestr">Event date</label>
+                    <input ng-model="datestr" type="text" class="form-control" id="datestr" name="datestr"
+                           placeholder="yyyy-mm-dd">
+                </div>
+
+                <div class="form-group">
+                    <label for="venue_name">Venue name</label>
+                    <input ng-model="event.venue.name" type="text" class="form-control" id="venue_name"
+                           name="venue_name"
+                           placeholder="Name of venue" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="venue_address">Venue address</label>
+                    <input ng-model="event.venue.address" type="text" class="form-control" id="venue_address"
+                           name="venue_address"
+                           placeholder="street, city, state, zip">
+                </div>
+
+                <input class="btn btn-large btn-primary"
+                       type="button"
+                       ng-click="saveEvent()"
+                       value="Save Event"/>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12 ">
+            <h2>Events</h2>
+            <table class="table table-striped table-bordered">
+                <tr ng-repeat="event in events">
+                    <td>{{event.title}}</td>
+                    <td>{{event.eventdate | date: 'MMM d, y' : '+0400'}}</td>
+                    <td><input ng-click="deleteEvent(event)" type="button" class="btn" value="Delete"></td>
+                </tr>
+            </table>
+        </div>
+    </row>
+</div>
+</body>
+</html>

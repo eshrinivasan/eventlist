@@ -1,0 +1,8 @@
+<%
+    var shortDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    var shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    formatDate = function(dateobj) {
+        var str = shortDays[dateobj.getDay()] + ', ' + shortMonths[dateobj.getMonth()] + ' ' + dateobj.getDate() + ', ' + dateobj.getFullYear();
+        return str;
+    };
+%>
