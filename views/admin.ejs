@@ -3,7 +3,9 @@
 <head>
     <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js'></script>
     <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js'></script>
-    <script src='js/app/app.js'></script>
+    <!-- before gulp concatmin <script src='js/app/app.js'></script> -->
+    <!-- after gulp concatmin, app.js is located in assets/app.js, and static path must be changed to assets -->
+    <script src='app.js'></script>
     <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
 </head>
 <body ng-controller='ApplicationCtrl'>
