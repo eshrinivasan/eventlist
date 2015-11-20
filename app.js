@@ -16,8 +16,8 @@ var MongoStore = require('connect-mongo')({session: expressSession});
 var mongoose = require('mongoose');
 
 // define url for database connection (default port is 27017)
-//var conn = mongoose.connect('mongodb://localhost/eventlist');
-var conn = mongoose.connect('mongodb://testuser:hamlet@ds057224.mongolab.com:57224/heroku_d0sdrhbp');
+var conn = mongoose.connect('mongodb://localhost/eventlist');
+//var conn = mongoose.connect('mongodb://testuser:hamlet@ds057224.mongolab.com:57224/heroku_d0sdrhbp');
 
 // initialize the application
 var app = express();
