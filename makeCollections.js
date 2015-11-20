@@ -46,5 +46,5 @@ event_coll.insert({
     created: new Date()
 });
 
-user_coll = db.getCollection('users');
+user_coll = db.getCollection('events');
 user_coll.drop();

@@ -20,6 +20,7 @@ router.get('/', function(req, res) {
             console.log(err);
             return next(err);
         }
+        console.log(events)
         var vm = {
             title: 'Upcoming Events',
             events: events.slice(0,3),
